@@ -100,30 +100,23 @@
             if (hotseatison) {
                 if (context.username == hotseatuser){
                     $("#popuptext").text("🔥 " + context['display-name'] + ": " + commandName + " 🔥");
-                    doHotseatAnimation();
+                    doAnimation(true);
                 }
             }
                 
     }
         
     // Animate text
-    function doAnimation() {
+    function doAnimation(withBackgroundColour = false) {
         var textWidth = $("#popuptext").width();
         $("#popuptext").css({"opacity":0, "margin-left":"50px"}); 
+		if (withBackgroundColour) {
+			$("#popupbox").css({"background-color":"#aa1100"}); 
+		}
         $("#popupbox").width(1);
         $("#popupbox").animate({width:textWidth+30}, 500);
         $("#popuptext").animate({"opacity":1, "margin-left":"15px"}, 700);
-    }
-    
-    function doHotseatAnimation() {
-        var textWidth = $("#popuptext").width();
-        $("#popuptext").css({"opacity":0, "margin-left":"50px"}); 
-        $("#popupbox").css({"background-color":"#aa1100"}); 
-        $("#popupbox").width(1);
-        $("#popupbox").animate({width:textWidth+30}, 500);
-        $("#popuptext").animate({"opacity":1, "margin-left":"15px"}, 700);
-    }
-    
+    }    
     
         
     // Animate off
